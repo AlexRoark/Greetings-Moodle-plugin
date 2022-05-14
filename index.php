@@ -21,6 +21,7 @@
  */
 
 require_once('../../config.php');
+require_once ($CFG->dirroot. '/local/greetings/lib.php');
 
 $context = context_system::instance();
 
@@ -32,10 +33,12 @@ $PAGE->set_heading(get_string('pluginname', 'local_greetings'));
 
 echo $OUTPUT->header();
 
-echo '<h2>Hi, learner</h2>';
+
 if(isloggedin()):
-    echo 'You can use this time helper, just will activate it.';
+    echo local_greetings_get_greeting($USER);
+    echo '<br>You can use this time helper, just will activate it.';
 else:
+    echo get_string('greetingsuser', 'local_greetings');
     echo 'You need authorize for using this.';
 endif;
 
