@@ -29,6 +29,7 @@ $string['pluginname'] = 'Hey, relax';
 $string['greetingsuser'] = 'Hi, learner.';
 $string['greetingsloggeduser'] = 'Hi, {$a}.';
 $string['yourmessage'] = 'Your message';
+$string['postedby'] = 'Posted by {$a}';
 
 //Localization
 $string['greetingsloggeduserau'] = 'Hi, {$a}.';
