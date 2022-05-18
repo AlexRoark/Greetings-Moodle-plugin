@@ -22,6 +22,7 @@
 
 require_once('../../config.php');
 require_once ($CFG->dirroot. '/local/greetings/lib.php');
+require_once ($CFG->dirroot. '/local/greetings/message_form.php');
 
 $context = context_system::instance();
 
@@ -31,8 +32,9 @@ $PAGE->set_pagelayout('standard');
 $PAGE->set_title($SITE->fullname);
 $PAGE->set_heading(get_string('pluginname', 'local_greetings'));
 
-echo $OUTPUT->header();
+$messageform = new local_greetings_message_form();
 
+echo $OUTPUT->header();
 
 if(isloggedin()):
     echo local_greetings_get_greeting($USER);
@@ -40,6 +42,13 @@ if(isloggedin()):
 else:
     echo get_string('greetingsuser', 'local_greetings');
     echo 'You need authorize for using this.';
+endif;
+
+$messageform->display();
+
+if ($data = $messageform->get_data()):
+    $message = required_param('message', PARAM_TEXT);
+echo $OUTPUT->heading($message, 4);
 endif;
 
 echo $OUTPUT->footer();
