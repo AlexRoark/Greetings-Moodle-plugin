@@ -41,11 +41,12 @@ $allowpost = has_capability('local/greetings:postmessages', $context);
 $allowview = has_capability('local/greetings:viewmessages', $context);
 $deletepost = has_capability('local/greetings:deleteanymessage', $context);
 
-$action = optional_param('action', '', PARAM_TEXT);
+$action = optional_param('action', null, PARAM_INT);
 if ($action == 'del'):
 
     $id = required_param('id', PARAM_TEXT);
     if ($deletepost):
+        require_sesskey();
         $DB->delete_records('local_greetings_messages', array('id' => $id));
     endif;
 endif;
@@ -93,7 +94,7 @@ if ($allowview):
             echo html_writer::link(
                 new moodle_url(
                     '/local/greetings/index.php',
-                    array('action' => 'del', 'id' => $m->id)
+                    array('action' => 'del', 'sesskey'=>sesskey(), 'id' => $m->id)
                 ),
                 $OUTPUT->pix_icon('t/delete', '') . get_string('delete')
             );

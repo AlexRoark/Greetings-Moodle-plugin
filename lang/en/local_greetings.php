@@ -33,6 +33,8 @@ $string['postedby'] = 'Posted by {$a}';
 $string['greetings:viewmessages'] = 'View messages on the Greetings wall';
 $string['greetings:postmessages'] = 'Post a new message on the Greetings wall';
 $string['greetings:deleteanymessage'] = 'Delete a message from the Greetings wall';
+$string['showinnavigation'] = 'Show in navigation';
+$string['showinnavigationdesc'] = 'When enabled will show link in navigation';
 
 //Localization
 $string['greetingsloggeduserau'] = 'Hi, {$a}.';
