@@ -22,10 +22,31 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
-$plugin->component = 'local_greetings';
-$plugin->release = 'Carrot';
-$plugin->version = 2022051412;
-$plugin->requires = 2021051700;
-$plugin->maturity = MATURITY_ALPHA;
+$capabilities = array(
+    'local/greetings:postmessages' => array(
+    'riskbitmask' => RISK_SPAM,
+    'captype' => 'write',
+    'contextlevel' => CONTEXT_SYSTEM,
+    'archetypes' => array(
+        'user' => CAP_ALLOW,
+    )
+),
+    'local/greetings:viewmessages' => array(
+        'riskbitmask' => RISK_SPAM,
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => array(
+            'user' => CAP_ALLOW,
+        )
+    ),
+    'local/greetings:deleteanymessage' => array(
+        'riskbitmask' => RISK_SPAM,
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => array(
+            'user' => CAP_ALLOW,
+        )
+    ),
+);

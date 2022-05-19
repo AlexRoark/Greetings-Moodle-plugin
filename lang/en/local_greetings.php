@@ -30,6 +30,9 @@ $string['greetingsuser'] = 'Hi, learner.';
 $string['greetingsloggeduser'] = 'Hi, {$a}.';
 $string['yourmessage'] = 'Your message';
 $string['postedby'] = 'Posted by {$a}';
+$string['greetings:viewmessages'] = 'View messages on the Greetings wall';
+$string['greetings:postmessages'] = 'Post a new message on the Greetings wall';
+$string['greetings:deleteanymessage'] = 'Delete a message from the Greetings wall';
 
 //Localization
 $string['greetingsloggeduserau'] = 'Hi, {$a}.';
